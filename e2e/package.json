@@ -1,0 +1,17 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "bats tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bats": "^1.6.0",
+    "bats-assert": "git+https://github.com/ztombol/bats-assert.git",
+    "bats-support": "git+https://github.com/ztombol/bats-support.git"
+  }
+}

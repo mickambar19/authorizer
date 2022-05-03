@@ -4,7 +4,7 @@ import "github.com/mickambar19/authorizer/src/model"
 
 type AccountManager interface {
 	AccountEnabled() bool
-	CreateAccount(activeCard bool, availableImit int) model.Account
+	CreateAccount(activeCard bool, availableLimit int) model.Account
 	GetAccount() model.Account
 }
 

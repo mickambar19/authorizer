@@ -32,6 +32,9 @@ func (a *AccountManager) CreateAccount(activeCard bool, availableLimit int) mode
 }
 
 func (a *AccountManager) GetAccount() model.Account {
+	if a.account == nil {
+		return model.Account{}
+	}
 	return *a.account
 }
 

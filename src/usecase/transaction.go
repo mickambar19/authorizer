@@ -48,12 +48,14 @@ func (t *Transaction) CreateTransaction(amount int, merchant string, date time.T
 		violations = append(violations, "insufficient-limit")
 	}
 
+	intervalMinutes := 2
 	exists, lastThirdTransaction := t.ts.GetTransactionFromOffset(3)
-	if exists && helpers.AreDatesWithinInterval(lastThirdTransaction.Time, date, 2) {
+
+	if exists && helpers.AreDatesWithinInterval(lastThirdTransaction.Time, date, intervalMinutes) {
 		violations = append(violations, "high-frequency-small-interval")
 	}
 
-	dupedTransactions := t.ts.GetTransactionsBy(merchant, amount, date, 2)
+	dupedTransactions := t.ts.GetTransactionsBy(merchant, amount, date, intervalMinutes)
 	if len(dupedTransactions) > 0 {
 		violations = append(violations, "doubled-transaction")
 	}
