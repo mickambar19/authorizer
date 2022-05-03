@@ -68,7 +68,13 @@ This way we can make the code more flexible for new business rules without creat
 
 ## Unit tests
 
-We have only covered the usecases as it is the part that contains the business rules.
+Usecases are the only parts that were fully tested as it is the part that contains the business rules.
+
+Libraries used: Gomock & testify
+
+Gomock was used to create the corresponding mocks for the interfaces used
+
+Testify was used for more readable assertions
 
 1. Generate the mock files that will help us out with the tests
 
@@ -91,6 +97,8 @@ We can create the html coverage in case you want to check deeply which lines wer
 ```
 
 ## e2e Tests
+
+The e2e tests are created using BATS(Bash Automated Testing System) since the only assertion that we need is to compare the stdout from the authorizer with the corresponding output.
 
 Prerequisites
 
